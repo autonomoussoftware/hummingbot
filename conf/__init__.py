@@ -54,6 +54,10 @@ kyber_test_erc20_token_address_1 = os.getenv("KYBER_TOKEN_ADDRESS_1")
 kyber_test_erc20_token_address_2 = os.getenv("KYBER_TOKEN_ADDRESS_2")
 kyber_test_wallet_private_key = os.getenv("KYBER_WALLET_PRIVATE_KEY")
 
+# Metronome Tests
+metronome_test_erc20_token_address = os.getenv("METRONOME_TOKEN_ADDRESS")
+metronome_test_wallet_private_key = os.getenv("METRONOME_WALLET_PRIVATE_KEY")
+
 # Huobi Tests
 huobi_api_key = os.getenv("HUOBI_API_KEY")
 huobi_secret_key = os.getenv("HUOBI_SECRET_KEY")

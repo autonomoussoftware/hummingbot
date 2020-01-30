@@ -140,6 +140,10 @@ class TradingPairFetcher:
 
         return []
 
+    async def fetch_metronome_trading_pairs(self) -> List[str]:
+        # Metronome ACC only support MET-ETH pair
+        return ["MET-ETH"]
+
     async def fetch_radar_relay_trading_pairs(self) -> List[str]:
         try:
             from hummingbot.market.radar_relay.radar_relay_market import RadarRelayMarket
@@ -401,6 +405,7 @@ class TradingPairFetcher:
         kucoin_trading_pairs = await self.fetch_kucoin_trading_pairs()
         bitcoin_com_trading_pairs = await self.fetch_bitcoin_com_trading_pairs()
         kyber_trading_pairs = await self.fetch_kyber_trading_pairs()
+        metronome_trading_pairs = await self.fetch_metronome_trading_pairs()
         self.trading_pairs = {
             "binance": binance_trading_pairs,
             "dolomite": dolomite_trading_pairs,
@@ -414,6 +419,7 @@ class TradingPairFetcher:
             "bittrex": bittrex_trading_pairs,
             "kucoin": kucoin_trading_pairs,
             "bitcoin_com": bitcoin_com_trading_pairs,
-            "kyber": kyber_trading_pairs
+            "kyber": kyber_trading_pairs,
+            "metronome": metronome_trading_pairs
         }
         self.ready = True
