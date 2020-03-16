@@ -21,7 +21,9 @@ from hummingbot.wallet.ethereum.ethereum_chain import EthereumChain
 
 class MetronomeAPIOrderBookDataSource(OrderBookTrackerDataSource):
     METRONOME_MAINNET_REST_ENDPOINT = "https://api.metronome.io/acc"
-    METRONOME_ROPSTEN_REST_ENDPOINT = "http://localhost:3002/acc"  # TODO: update ropsten url
+
+    # Setup local api for testnet https://github.com/autonomoussoftware/metronome-api
+    METRONOME_ROPSTEN_REST_ENDPOINT = "http://localhost:3002/acc"
     TICKER_URL = "/ticker"
     ORDER_BOOK_URL = "/orderbook"
 

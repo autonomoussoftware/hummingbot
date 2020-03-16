@@ -73,9 +73,11 @@ cdef class MetronomeMarket(MarketBase):
     MARKET_SELL_ORDER_CREATED_EVENT_TAG = MarketEvent.SellOrderCreated.value
 
     METRONOME_MAINNET_REST_ENDPOINT = "https://api.metronome.io/acc"
-    METRONOME_MAINNET_PROXY = "0x818e6fecd516ecc3849daf6845e3ec868087b755"
-    METRONOME_ROPSTEN_REST_ENDPOINT = "http://localhost:3002/acc"  # TODO: update ropsten url
-    METRONOME_ROPSTEN_PROXY = "0x638e84db864aa345266e1aee13873b860afe82e7"
+    METRONOME_MAINNET_ACC_ADDRESS = "0x686e5ac50D9236A9b7406791256e47feDDB26AbA"
+
+    # Setup local api for testnet https://github.com/autonomoussoftware/metronome-api
+    METRONOME_ROPSTEN_REST_ENDPOINT = "http://localhost:3002/acc"
+    METRONOME_ROPSTEN_ACC_ADDRESS = "0x638e84db864aa345266e1aee13873b860afe82e7"
     CURRENCIES = "/currencies"
     TICKER = "/ticker"
     QUOTE = "/quote"
@@ -122,10 +124,10 @@ cdef class MetronomeMarket(MarketBase):
         self._prepare_asset_info()
         if wallet.chain is EthereumChain.MAIN_NET:
             self._api_endpoint = self.METRONOME_MAINNET_REST_ENDPOINT
-            self._wallet_spender_address = Web3.toChecksumAddress(self.METRONOME_MAINNET_PROXY)
+            self._wallet_spender_address = Web3.toChecksumAddress(self.METRONOME_MAINNET_ACC_ADDRESS)
         elif wallet.chain is EthereumChain.ROPSTEN:
             self._api_endpoint = self.METRONOME_ROPSTEN_REST_ENDPOINT
-            self._wallet_spender_address = Web3.toChecksumAddress(self.METRONOME_ROPSTEN_PROXY)
+            self._wallet_spender_address = Web3.toChecksumAddress(self.METRONOME_ROPSTEN_ACC_ADDRESS)
 
     @property
     def name(self) -> str:
